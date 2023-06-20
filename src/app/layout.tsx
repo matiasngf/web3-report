@@ -1,5 +1,7 @@
 import "~/css/global.css"
 
+import { AppCanvas } from "~/components/common/canvas"
+
 import { AppHooks } from "./app-hooks"
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
@@ -7,7 +9,8 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
     <html lang="en">
       <body className="min-h-screen">
         <AppHooks />
-        {children}
+        <AppCanvas />
+        <div className="relative z-20">{children}</div>
       </body>
     </html>
   )

@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
-import type { ReactNode } from 'react'
+import type { ReactNode } from "react"
 
-import { SceneCamera } from './scene-camera'
+import { SceneCamera } from "./scene-camera"
 
 export const PrimaryScene = ({ children }: { children: ReactNode }) => {
   return (
