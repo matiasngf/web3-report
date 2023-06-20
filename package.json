@@ -24,6 +24,7 @@
     "react": "^18.2.0",
     "react-device-detect": "^2.2.3",
     "react-dom": "^18.2.0",
+    "tailwind-merge": "^1.13.2",
     "three": "^0.152.2",
     "three-stdlib": "^2.21.11",
     "zustand": "^4.3.8"
@@ -53,7 +54,6 @@
     "next-sitemap": "^4.0.9",
     "postcss": "^8.4.24",
     "prettier": "^2.8.8",
-    "sass": "^1.62.1",
     "stylelint": "^15.6.2",
     "stylelint-config-prettier": "^9.0.5",
     "stylelint-config-standard": "^33.0.0",
