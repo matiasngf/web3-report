@@ -4,6 +4,9 @@
 
 @layer components {
   .container {
-    @apply max-w-7xl mx-auto px-4;
+    @apply max-w-5xl mx-auto px-4;
+  }
+  .card {
+    @apply bg-background-light rounded-lg shadow-lg text-font-400 p-4;
   }
 }

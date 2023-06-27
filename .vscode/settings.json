@@ -10,6 +10,7 @@
   "tailwindCSS.classAttributes": [
     "class",
     "className",
+    "activeClassName",
     ".*Styles"
   ],
   "css.validate": false,
