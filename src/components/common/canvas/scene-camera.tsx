@@ -1,34 +1,26 @@
 "use client"
 
-import { OrthographicCamera } from "@react-three/drei"
-import type { OrthographicCameraProps } from "@react-three/fiber"
-import { useEffect, useRef } from "react"
+import { PerspectiveCamera } from "@react-three/drei"
 
 import { useCanvasSize } from "~/hooks/use-canvas-size"
 import { useScrollStore } from "~/hooks/use-scroll"
 
 export const SceneCamera = () => {
-  const cameraRef = useRef<OrthographicCameraProps>(null)
   const { width, height } = useCanvasSize()
   const yScroll = useScrollStore((s) => s.yScroll)
+  const distance = 1000 // Specify the distance from the camera to the scene
 
-  useEffect(() => {
-    if (cameraRef.current) {
-      cameraRef.current.left = -width / 2
-      cameraRef.current.right = width / 2
-      cameraRef.current.top = height / 2
-      cameraRef.current.bottom = -height / 2
-      cameraRef.current.updateProjectionMatrix?.()
-    }
-  }, [width, height])
+  // Calculate the field of view (fov) based on the distance and desired height
+  const fov = (Math.atan(height / (2 * distance)) * 360) / Math.PI
 
   return (
-    <OrthographicCamera
-      ref={cameraRef}
-      near={0.0}
-      far={3000}
-      position={[width / 2, yScroll - height / 2, 2000]}
+    <PerspectiveCamera
+      near={0.1}
+      far={distance * 2}
+      position={[width / 2, -yScroll - height / 2, distance]}
       makeDefault
+      onUpdate={(c) => c.updateProjectionMatrix()}
+      fov={fov}
     />
   )
 }

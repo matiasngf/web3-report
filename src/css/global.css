@@ -10,3 +10,10 @@
     @apply bg-background-light rounded-lg shadow-lg text-font-400 p-4;
   }
 }
+
+
+.recharts-default-tooltip {
+  background-color: black !important;
+  border: solid 1px white !important;
+  outline: none;
+}

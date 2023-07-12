@@ -10,7 +10,12 @@ import { useScrollStore } from "./use-scroll"
 
 type LenisOptions = ConstructorParameters<typeof Lenis>[0]
 
-export const useLenis = (options: LenisOptions = {}) => {
+export const useLenis = (
+  options: LenisOptions = {
+    smoothWheel: true,
+    normalizeWheel: true,
+  }
+) => {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
   }, [])
@@ -20,10 +25,11 @@ export const useLenis = (options: LenisOptions = {}) => {
   const optionsKey = JSON.stringify(options)
 
   const lenis = useMemo(() => {
+    if (typeof window === "undefined") return
     const l = new Lenis(options)
     l.on("scroll", (e: any) => {
       ScrollTrigger.update()
-      setYScroll(-e.animatedScroll)
+      setYScroll(e.animatedScroll)
     })
     return l
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -31,7 +37,7 @@ export const useLenis = (options: LenisOptions = {}) => {
 
   useRaf(
     (time) => {
-      lenis.raf(time)
+      lenis?.raf(time)
     },
     [lenis],
     false,

@@ -2,7 +2,7 @@ import "~/css/global.css"
 
 import { AppCanvas } from "~/components/common/canvas"
 
-import { AppHooks } from "./app-hooks"
+import { AppHooks } from "./layout/app-hooks"
 
 const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
   return <div>{children}</div>

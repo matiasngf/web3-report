@@ -1,7 +1,7 @@
 import { usePathname } from "next/navigation"
 import { useMemo } from "react"
 
-import { menuItems } from "~/app/(article)/menu"
+import { menuItems } from "~/app/layout/menu"
 
 export const useMenuLinks = () => {
   const pathName = usePathname()
